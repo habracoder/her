@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <noscript><meta http-equiv="refresh" content="0; URL=/index/badbrowser"></noscript>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Phalcon PHP Framework</title>
+
+    <link href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/front.css') }}" rel="stylesheet" />
+
+    <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script src="{{ asset('js/doT.js') }}"></script>
+    <script src="{{ asset('js/mods.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-custom">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Показать меню</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Advert</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ url('page.main') }}">Главная</a></li>
+                <li><a href="{{ url('page.advert.list') }}">Объявления</a></li>
+                <li><a href="{{ url('page.advert.create') }}">Создать</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Поиск...">
+            </form>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</nav>
+<div class="container" id="mainWrap">
+    {% if titleBar is defined %}
+        <h1>{{ titleBar }}</h1>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-8">
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <div class="col-md-4">
+            {% block rightSide %}
+                <div class="panel">
+                    <div class="panel-body">
+                        This is sidebar
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

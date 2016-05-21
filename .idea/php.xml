@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpProjectServersManager">
+    <servers>
+      <server host="http://advert.local/create" id="ae072f53-b9b1-48b2-9bdf-bfcf16749ab3" name="http://advert.local/create" />
+    </servers>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7" />
+</project>

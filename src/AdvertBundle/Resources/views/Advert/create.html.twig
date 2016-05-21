@@ -1,0 +1,64 @@
+{% extends '@App/layout.html.twig' %}
+
+{% set titleBar = 'Создание обявления' %}
+
+{% block content %}
+
+    {{ form_start(form, {'attr':{'id': 'create-advert'}}) }}
+    {{ form_row(form.title) }}
+    <div class="row form-group">
+        <div class="col-sm-2">
+            {{ form_label(form.price) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_widget(form.price) }}
+        </div>
+        <div class="col-sm-6">
+            {{ form_widget(form.currency, {'attr': {'class': 'her'}}) }}
+        </div>
+    </div>
+    {{ form_row(form.description, {'attr':{'rows':5}}) }}
+
+    <div class="text-right">
+        {{ form_widget(form.preview, {'attr' : {'class' : 'btn-primary'}}) }}
+        {{ form_widget(form.submit, {'attr' : {'class' : 'btn-success'}}) }}
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block step_main %}
+    <div role="tabpanel" class="tab-pane fade active in" id="main">
+
+        <div class="text-right">
+            <a class="btn btn-primary nextStep" onclick="$('#steps a[href=#other]').tab('show')">Следующий шаг</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block step_second %}
+    <div role="tabpanel" class="tab-pane fade" id="other">
+
+
+        <div class="text-right">
+            <a class="btn btn-primary prevStep" onclick="$('#steps a[href=#main]').tab('show')">Предыдущий шаг</a>
+            <a class="btn btn-primary nextStep" onclick="$('#steps a[href=#image]').tab('show')">Следующий шаг</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block step_third %}
+    <div role="tabpanel" class="tab-pane fade" id="image">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+        <div class="text-right">
+            <a class="btn btn-primary prevStep" onclick="$('#steps a[href=#other]').tab('show')">Предыдущий шаг</a>
+            <a class="btn btn-success" id="saveButton">Сохранить</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/modules/advert/advert.create.js') }}" type="text/javascript"></script>
+{% endblock %}

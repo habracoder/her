@@ -1,0 +1,17 @@
+{% extends '@App/layout.html.twig' %}
+
+{% block content %}
+    <h1>Список обявлений</h1>
+
+    {% for advert in adverts %}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                {{ advert.title }}
+                <hr />
+                {% autoescape false %}
+                    {{ advert.description }}
+                {% endautoescape %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
